@@ -19,13 +19,12 @@ class Cleric {
   /// 기도한 시간(초) : 랜덤 0 ~ 2
   /// param : int prayTime / return int result;
   int pray(int prayTime) {
-    print('maxMp : $maxMp');
-    print('mp : $mp');
+    print('mp : $mp / maxMp : $maxMp');
 
     int result = 0;
     int point = Random().nextInt(3);
 
-    if (mp < maxMp) result += prayTime + point;
+    if (mp < maxMp) result = prayTime + point;
 
     // maxMp 이하 검증
     if ((mp + result) > maxMp) result = maxMp - mp;
