@@ -2,12 +2,19 @@ import 'dart:math';
 
 class Cleric {
   String name = "아벨";
-  final int maxHp = 50;
-  final int maxMp = 10;
+  static const int maxHp = 50;
+  static const int maxMp = 10;
   int hp;
   int mp;
 
-  Cleric(this.name, this.hp, this.mp);
+  Cleric(
+      this.name,
+    {
+      this.hp = maxHp,
+      this.mp = maxMp,
+    }
+  );
+
 
   /// 셀프에이드 : mp를 소모해서, hp 회복한다.
   void selfAid() {
@@ -33,5 +40,6 @@ class Cleric {
 
     return result;
   }
+
 
 }
