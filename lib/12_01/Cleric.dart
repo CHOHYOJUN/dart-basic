@@ -15,7 +15,6 @@ class Cleric {
     }
   );
 
-
   /// 셀프에이드 : mp를 소모해서, hp 회복한다.
   void selfAid() {
     mp = -10; // mp10 소모
