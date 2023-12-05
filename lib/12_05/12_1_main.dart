@@ -72,7 +72,7 @@ abstract class TangibleAsset extends Asset implements Thing {
 }
 
 // [2-1]물건
-abstract class Thing {
+abstract interface class Thing {
   double get weight;
 
   set weight(double weight);
