@@ -1,6 +1,6 @@
-import 'package:untitled/12_05/Slime.dart';
 
 import 'Hero.dart';
+import 'Slime.dart';
 
 class PoisonSlime extends Slime{
 
@@ -17,16 +17,21 @@ class PoisonSlime extends Slime{
     super.attack(hero);
     hero.infoHp();
 
-
     if(poisonAttackCount > 0) {
-      int poisonDmage = (hero.hp > 0) ? (hero.hp ~/ 5) : 0;
-      hero.hp -= poisonDmage;
-      poisonAttackCount--;
+      int poisonDamage = (hero.hp > 0) ? (hero.hp ~/ 5) : 0;
+
 
       print('추가로, 독포자를 살포했다!');
-      print('$poisonDmage 포인트 데미지');
+      print('$poisonDamage 포인트 데미지');
+
+      poisonAttackCount--;
+      hero.hp -= poisonDamage;
+
       hero.infoHp();
     }
+
+    hero.hp < 0 ? hero.hp = 0 : print('${hero.name}가 전사 했다. [GameOver]');
+
   }
 
 }
