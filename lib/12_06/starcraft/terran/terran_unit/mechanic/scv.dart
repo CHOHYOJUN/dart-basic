@@ -3,7 +3,14 @@ import '../../../interface/scv_repairable.dart';
 import 'interface/mechanic.dart';
 
 class SCV extends Mechanic implements SCVRepairable, MedicCurable {
-  SCV({required super.hp});
+
+  @override
+  String name;
+
+  SCV({
+    required this.name,
+    required super.hp,
+  });
 
   void repair(SCVRepairable unit) {
     unit.hp += 10;
@@ -13,4 +20,5 @@ class SCV extends Mechanic implements SCVRepairable, MedicCurable {
     // todo
     return 0;
   }
+
 }

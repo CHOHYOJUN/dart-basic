@@ -1,1 +1,3 @@
-abstract interface class Protoss {}
+import '../../interface/unit.dart';
+
+abstract interface class Protoss implements Unit {}

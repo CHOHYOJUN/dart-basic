@@ -2,5 +2,11 @@ import '../../../interface/scv_repairable.dart';
 import 'interface/mechanic.dart';
 
 class Vulture extends Mechanic implements SCVRepairable {
-  Vulture({required super.hp});
+  @override
+  String name;
+
+  Vulture({
+    required this.name,
+    required super.hp,
+  });
 }
