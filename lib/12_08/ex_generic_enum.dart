@@ -5,7 +5,6 @@
 // - get() 사용횟수에 도달하지 않았을 경우 null을 리턴한다. // 사용횟수에 도달하면 해당 키타입을 리턴한다.
 // - put() 에 KeyType을 주입해서, 그 이후론 get()할때 해당 KeyType의 사용횟수를 가산 or 감산 한다.
 
-
 void main() {
 
   StrongBox sb = StrongBox(keyType: KeyType.padlock);
@@ -36,31 +35,29 @@ void main() {
 
 /// KeyType enum 구현
 enum KeyType {
-  padlock,
-  button,
-  dial,
-  finger,
+  padlock(maxCount: 1024),
+  button(maxCount: 10000),
+  dial(maxCount: 30000),
+  finger(maxCount: 100000);
+
+  final int maxCount;
+
+  const KeyType({required this.maxCount});
 }
 
 ///  StrongBox class 구현
-class StrongBox<E> {
+class StrongBox<E extends KeyType> {
   KeyType _keyType;
-  // 초기값 상수화
-  static const int padlockMaxCount = 1024;  // 1,024
-  static const int buttonMaxCount = 10000;  // 10,000
-  static const int dialMaxCount = 30000;    // 30,000
-  static const int fingerMaxCount = 1000000;// 1,000,000
 
-  // 사용횟수
-  int _padlockCount = padlockMaxCount;
-  int _buttonCount = buttonMaxCount;
-  int _dialCount = dialMaxCount;
-  int _fingerCount = fingerMaxCount;
+  // 사용 횟수
+  int _padlockCount = KeyType.padlock.maxCount;
+  int _buttonCount = KeyType.button.maxCount;
+  int _dialCount = KeyType.dial.maxCount;
+  int _fingerCount = KeyType.finger.maxCount;
 
   StrongBox({
     required KeyType keyType,
   }) : _keyType = keyType;
-
 
 
   KeyType? get() {
