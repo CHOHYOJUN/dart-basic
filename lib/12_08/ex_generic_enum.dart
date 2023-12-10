@@ -61,7 +61,7 @@ class StrongBox<E extends KeyType> {
 
 
   KeyType? get() {
-    KeyType? resultKeyType; // ? 했기 때문에, 초기값 null
+    KeyType? resultKeyType; // 초기값 null
 
     /// 0 보다 작으면(0포함=true) , 카운트를 감산하고, 그렇지 않으면 해당 타입을 리턴한다.
     switch (_keyType) {
