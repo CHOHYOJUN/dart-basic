@@ -13,8 +13,7 @@ Future<String> getMovieInfo() async {
 
 void main() {
   () async {
-    print(
-        '감독: ${jsonDecode(await getMovieInfo())['director']}'); // George Lucas
+    print('감독: ${jsonDecode(await getMovieInfo())['director']}'); // George Lucas
   }();
 }
 
